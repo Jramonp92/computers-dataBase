@@ -6,6 +6,7 @@ class AddnewPage {
         companySelect: () => cy.get('#company'),
         createButton: () => cy.contains('Create this computer'),
         cancelButton: () => cy.contains('Cancel'),
+        errorMessage: (error)  => cy.contains('span',`${error}`),
     }
 
     fillNameInput = (name) => this.elements.nameInput().type(name);
@@ -26,6 +27,8 @@ class AddnewPage {
         this.filldiscontinuedInput(endDate);
         this.fillCompanySelect(option);
     }
+
+    verifyErrorExist = (error) => this.elements.errorMessage(error)
 
  }
  

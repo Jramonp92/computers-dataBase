@@ -28,3 +28,7 @@ Then('I must be redirected to the list page and the computer {string} shall not 
   cy.url().should('be.equal',  `${Cypress.config("baseUrl")}`)
   HomePage.verifyCreation(computerName,false)
 })
+
+Then('I must get the following error {string}', (error) => {
+  AddNewPage.verifyErrorExist(error)
+})
